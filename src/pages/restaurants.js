@@ -4,6 +4,7 @@ import Container from '../components/Container'
 import PageTitle from '../components/PageTitle'
 import ContactForm from '../components/ContactForm'
 import SEO from '../components/SEO'
+import MapLayout from '../components/restaurants/MapLayout'
 
 
 export default function restaurants({data}) {
@@ -12,6 +13,7 @@ export default function restaurants({data}) {
         <SEO title="Restaurants" description="Check out minority owned restaurants near you!" />
         <Container>
           <PageTitle>Restaurants</PageTitle>
+          <MapLayout/>
         </Container>
       </Layout>
     )
