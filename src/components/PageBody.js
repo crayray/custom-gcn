@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 require('prismjs/themes/prism.css')
 
+//The body component below;
 const Body = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
