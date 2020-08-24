@@ -35,6 +35,10 @@ module.exports = {
         name: 'Contact',
         slug: '/contact/',
       },
+      {
+        name: 'Restaurants',
+        slug: '/restaurants/'
+      }
     ],
     postsPerFirstPage: 7,
     postsPerPage: 6,
