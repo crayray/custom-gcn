@@ -4,7 +4,103 @@ import GoogleMapWrapper from "./GoogleMapWrapper"
 import RestaurantMenu from "./RestaurantMenu"
 import RestaurantCard from "./RestaurantCard"
 
+import styled from '@emotion/styled'
+require('prismjs/themes/prism.css')
 
+//The body component below;
+const Body = styled.div`
+  margin: 0 auto;
+  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  h1,
+  h2,
+  h3 {
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 1rem 0;
+    text-transform: capitalize;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 1.25em;
+  }
+  h3 {
+    font-size: 1em;
+  }
+
+  p {
+    line-height: 1.6;
+    margin: 0 0 2em 0;
+  }
+
+  a {
+    transition: 0.2s;
+    color: ${props => props.theme.colors.text};
+    &:hover {
+      color: ${props => props.theme.colors.highlight};
+    }
+  }
+
+  del {
+    text-decoration: line-through;
+  }
+  strong {
+    font-weight: 600;
+  }
+  em {
+    font-style: italic;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 2em 0;
+  }
+
+  ul {
+    li {
+      list-style: disc;
+      list-style-position: inside;
+      line-height: 1.25;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  ol {
+    li {
+      list-style: decimal;
+      list-style-position: inside;
+      line-height: 1.25;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  hr {
+    border-style: solid;
+    border-color: ${props => props.theme.colors.secondary};
+    margin: 0 0 2em 0;
+  }
+
+  blockquote {
+    font-style: italic;
+    border-left: 4px solid ${props => props.theme.colors.secondary};
+    padding: 0 0 0 0.5em;
+  }
+
+  pre {
+    margin: 0 0 2em 0;
+    border-radius: 2px;
+    background: ${props => props.theme.colors.secondary} !important;
+    span {
+      background: inherit !important;
+    }
+  }
+`
 const restaurants = [
   {
     name: "Casa Columbia",
@@ -94,6 +190,7 @@ export default class RestaurantsLayout extends React.Component {
       return restaurant.cuisine.toLowerCase().includes(this.state.searchField.toLowerCase());
    })
     return (
+      <Body>
       <div style={{backgroundColor: "#E2DEB4"}}>
       <div style={{ paddingTop: "5em" }}>
     <div style={{ overflow: "auto"}}>
@@ -122,6 +219,7 @@ export default class RestaurantsLayout extends React.Component {
     </div>
   </div>
   </div>
+  </Body>
     )
   }
 }
