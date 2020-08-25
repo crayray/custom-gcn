@@ -3,6 +3,7 @@ import React from "react";
 import GoogleMapWrapper from "./GoogleMapWrapper"
 import RestaurantMenu from "./RestaurantMenu"
 import RestaurantCard from "./RestaurantCard"
+import "../../styles/RestaurantStyles.css"
 
 import styled from '@emotion/styled'
 require('prismjs/themes/prism.css')
@@ -10,7 +11,7 @@ require('prismjs/themes/prism.css')
 //The body component below;
 const Body = styled.div`
   margin: 0 auto;
-  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  max-width: ${props => props.theme.sizes.maxWidth};
   h1,
   h2,
   h3 {
@@ -69,6 +70,7 @@ const Body = styled.div`
     }
   }
 
+
   ol {
     li {
       list-style: decimal;
@@ -100,6 +102,11 @@ const Body = styled.div`
       background: inherit !important;
     }
   }
+`
+
+const Columns = styled.div ` 
+    display: grid-column-gap;
+
 `
 const restaurants = [
   {
@@ -191,16 +198,20 @@ export default class RestaurantsLayout extends React.Component {
    })
     return (
       <Body>
-      <div style={{backgroundColor: "#E2DEB4"}}>
-      <div style={{ paddingTop: "5em" }}>
-    <div style={{ overflow: "auto"}}>
+      <div>
+      <div>
+    <div>
       {/* <Grid stackable columns={2}> */}
         {/* <Grid.Row> */}
           {/* <Grid.Column width={10}> */}
+          <div className="container">
           <h1>Checkout for restaurants near you:</h1> 
-            <GoogleMapWrapper restaurants={this.state.restaurants} handleSelect={this.handleMarkerSelect}/>
+          <div className="map">
+            <GoogleMapWrapper restaurants={this.state.restaurants} handleSelect={this.handleMarkerSelect} className="map"/>
           {/* </Grid.Column> */}
           {/* <Grid.Column width={6}> */}
+          {/* <Columns> */}
+          </div>
           <h1 style={{textAlign: "center", marginBottom:"10px"}}>Search our list of restaurants by cuisine:</h1>
           <RestaurantMenu onSearchChange={this.onSearchChange}/>
            {cuisineFilteredRestuarants.map((restaurant, index) => (
@@ -213,12 +224,15 @@ export default class RestaurantsLayout extends React.Component {
               yelp={restaurant.yelp}
              />
            ))}
+   </div>
+           </div>
           {/* </Grid.Column> */}
         {/* </Grid.Row> */}
       {/* </Grid> */}
+      {/* </Columns> */}
+      </div>
     </div>
-  </div>
-  </div>
+  
   </Body>
     )
   }
