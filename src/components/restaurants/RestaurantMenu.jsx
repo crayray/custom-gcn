@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-
 export default class DataMenu extends Component {
   state = { activeItem: 'home' }
 
@@ -10,13 +9,16 @@ export default class DataMenu extends Component {
     const { activeItem } = this.state
 
     return (
-  <div>
-         <form>
-            <input onChange={this.props.onSearchChange} type="text"></input>
+      <div>
+        <form>
+          <label>
+            Search by cuisine:
+          </label>
+          <input value={this.state.value} onChange={this.props.onSearchChange} type="text"></input>
         </form>
-  </div>
- 
-   
+      </div>
+
+
     )
   }
 }
