@@ -38,6 +38,10 @@ module.exports = {
       {
         name: 'Restaurants',
         slug: '/restaurants/'
+      },
+      {
+        name: 'Restaurants Copy',
+        slug: '/restaurants_copy'
       }
     ],
     postsPerFirstPage: 7,

@@ -14,7 +14,7 @@ export default class DataMenu extends Component {
           <label>
             Search by cuisine:
           </label>
-          <input value={this.state.value} onChange={this.props.onSearchChange} type="text"></input>
+          <input style={{border: "blue"}} value={this.state.value} onChange={this.props.onSearchChange} type="text"></input>
         </form>
       </div>
 
