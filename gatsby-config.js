@@ -39,9 +39,13 @@ module.exports = {
         name: 'Restaurants',
         slug: '/restaurants/'
       },
+      // {
+      //   name: 'Restaurants Copy',
+      //   slug: '/restaurants_copy'
+      // },
       {
-        name: 'Restaurants Copy',
-        slug: '/restaurants_copy'
+        name: "Map Layout",
+        slug: "/map-layout"
       }
     ],
     postsPerFirstPage: 7,
