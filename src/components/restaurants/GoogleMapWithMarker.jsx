@@ -1,9 +1,7 @@
 // GoogleMapWithMarker.jsx
 
 // Import React
-import * as React from "react";
-// import { Image, Card, Segment, Grid } from "semantic-ui-react";
-// import "../stylesheets/MapMarker.css"
+import * as React from 'react'
 
 // Import necessary components for React Google Maps
 import {
@@ -11,11 +9,11 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  InfoWindow
-} from "react-google-maps";
+  InfoWindow,
+} from 'react-google-maps'
 
 // Import custom styles to customize the style of Google Map
-const styles = require("./GoogleMapStyles.json");
+const styles = require('./GoogleMapStyles.json')
 
 // Import custom icon for map marker
 // You can use this if you need to support IE11 and lower.
@@ -28,7 +26,7 @@ const GoogleMapWithMarker = withScriptjs(
       defaultZoom={11}
       defaultCenter={{
         lat: 30.293818, // latitude for the center of the map
-        lng: -97.734308 // longitude for the center of the map
+        lng: -97.734308, // longitude for the center of the map
       }}
       defaultOptions={{
         disableDefaultUI: true, // disable default map UI
@@ -36,63 +34,62 @@ const GoogleMapWithMarker = withScriptjs(
         keyboardShortcuts: false, // disable keyboard shortcuts
         scaleControl: true, // allow scale controle
         scrollwheel: true, // allow scroll wheel
-        styles: styles // change default map styles
+        styles: styles, // change default map styles
       }}
     >
       {props.restaurants.map((restaurant, index) => (
-        <div className="marker"><Marker
-        className="marker"
-          key={index}
-          icon={{
-            url: 'http://localhost:8000/pindrops/bgfc_pindrops_purple.svg',
-            scaledSize: new window.google.maps.Size(60, 60)
-           
-          }}
-          position={{
-            lat: restaurant.lat,
-            lng: restaurant.lng
-          }}
-          onClick={() =>
-            props.handleMarkerClick(
-              restaurant.name,
-              restaurant.lat,
-              restaurant.lng
-            )
-          }
-        /></div>
+        <div className="marker">
+          <Marker
+            className="marker"
+            key={index}
+            icon={{
+              url: 'http://localhost:8000/pindrops/bgfc_pindrops_purple.svg',
+              scaledSize: new window.google.maps.Size(60, 60),
+            }}
+            position={{
+              lat: restaurant.lat,
+              lng: restaurant.lng,
+            }}
+            onClick={() =>
+              props.handleMarkerClick(
+                restaurant.name,
+                restaurant.lat,
+                restaurant.lng,
+                restaurant.desc,
+                restaurant.yelp
+              )
+            }
+          />
+        </div>
       ))}
 
       {props.isInfoboxVisible && (
         <InfoWindow
           position={{
             lat: props.infoboxPosY,
-            lng: props.infoboxPosX
+            lng: props.infoboxPosX,
           }}
           onCloseClick={() => props.handleInfoboxClick()}
         >
-        {/* <Card> */}
-        <div>
           <div>
-            {/* <Grid.Row> */}
-            <div >
-            <img src="http://localhost:3001/Brown-Girls-Food-Club-Logo-01.svg"></img>
-                {/* <Image
-                  size="mini"
-                  src="http://localhost:3000/Brown-Girls-Food-Club-Logo-01.svg"
-                  floated="left"
-                /> */}
-                 <h4>{props.infoboxMessage}</h4>
-                </div>
+            <div>
+              <div>
+                <img src="http://localhost:3001/Brown-Girls-Food-Club-Logo-01.svg"></img>
+
+                <h4>{props.infoboxMessage}</h4>
+                <h4>{props.desc}</h4>
+                <h4>{props.yelp} </h4>
+        
                
-            {/* </Grid.Row> */}
+                
+              </div>
+            </div>
           </div>
-          </div>
-          {/* </Card> */}
         </InfoWindow>
       )}
     </GoogleMap>
   ))
-);
+)
 
 // Export Google Map component
-export default GoogleMapWithMarker;
+export default GoogleMapWithMarker
