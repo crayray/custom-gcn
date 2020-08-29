@@ -111,12 +111,11 @@ const Container = styled.div`
 `
 
 const Map = styled.div`
-  grid-column: 1
+  grid-column: 1;
 `
 const Filter = styled.div`
-  grid-column: 2
+  grid-column: 2;
 `
-
 
 const restaurants = [
   {
@@ -204,42 +203,34 @@ export default class RestaurantsLayout extends React.Component {
     )
     return (
       <Body>
-              {/* <Grid stackable columns={2}> */}
-              {/* <Grid.Row> */}
-              {/* <Grid.Column width={10}> */}
-              {/* <div className="container"> */}
-              <Container>
-                <h1>Checkout for restaurants near you:</h1>
-                {/* <div className="map"> */}
-                <Map>
-                  <GoogleMapWrapper
-                    restaurants={this.state.restaurants}
-                    handleSelect={this.handleMarkerSelect}
-                    className="map"
-                  />
-                  {/* </Grid.Column> */}
-                  {/* <Grid.Column width={6}> */}
-                  {/* <Columns> */}
-                {/* </div> */}
-                </Map>
-                <Filter>
-                <h1 style={{ textAlign: 'center', marginBottom: '10px' }}>
-                  Search our list of restaurants by cuisine:
-                </h1>
-                <DataMenu onSearchChange={this.onSearchChange} styles={{textAlign: 'right', display: "block"} }/>
-                {cuisineFilteredRestuarants.map((restaurant, index) => (
-                  <RestaurantCard
-                    href="#restaurants"
-                    key={index}
-                    desc={restaurant.desc}
-                    name={restaurant.name}
-                    cuisine={restaurant.cuisine}
-                    yelp={restaurant.yelp}
-                  />
-                ))}
-                </Filter>
-                </Container>
-      </Body> 
+        <Container>
+          <h1>Checkout for restaurants near you:</h1>
+          <DataMenu
+            onSearchChange={this.onSearchChange}
+            styles={{ textAlign: 'right', display: 'block' }}
+          />
+          {cuisineFilteredRestuarants.map((restaurant, index) => (
+            <RestaurantCard
+              href="#restaurants"
+              key={index}
+              desc={restaurant.desc}
+              name={restaurant.name}
+              cuisine={restaurant.cuisine}
+              yelp={restaurant.yelp}
+            />
+          ))}
+          <h1 style={{ textAlign: 'center', marginBottom: '10px' }}>
+              Search our list of restaurants by cuisine:
+            </h1>
+          <Map>
+            <GoogleMapWrapper
+              restaurants={this.state.restaurants}
+              handleSelect={this.handleMarkerSelect}
+            //   className="map"
+            />
+          </Map>
+        </Container>
+      </Body>
     )
   }
 }

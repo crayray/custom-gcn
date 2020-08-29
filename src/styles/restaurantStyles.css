@@ -1,0 +1,11 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 100px;
+    grid-gap: 1rem;
+}
+
+.map {
+    grid-column: 1
+}
+
