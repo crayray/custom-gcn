@@ -74,7 +74,6 @@ const GoogleMapWithMarker = withScriptjs(
           <div>
             <div>
               <div>
-                <img src="http://localhost:3001/Brown-Girls-Food-Club-Logo-01.svg"></img>
 
                 <h4>{props.infoboxMessage}</h4>
                 <h4>{props.desc}</h4>
