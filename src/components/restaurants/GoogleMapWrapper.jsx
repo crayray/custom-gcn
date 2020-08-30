@@ -24,9 +24,11 @@ class GoogleMapWrapper extends React.PureComponent {
     };
   }
 
-  handleMarkerClick = (message, lang, lat) => {
+  handleMarkerClick = (message, lang, lat, desc, yelp) => {
     this.setState({
       infoboxMessage: message, // Message shown in info window
+      desc: desc,
+      yelp: yelp,
       isInfoboxVisible: !this.state.isInfoboxVisible, // Show info window
       markerLang: lang + 0.006, // Y coordinate for positioning info window
       markerLat: lat - 0.0004 // X coordinate for positioning info window
@@ -54,6 +56,9 @@ class GoogleMapWrapper extends React.PureComponent {
           infoboxPosY={this.state.markerLang} // Y coordinate for positioning info window
           infoboxPosX={this.state.markerLat} // X coordinate for positioning info window
           restaurants={this.state.restaurants}
+          desc={this.state.desc}
+          yelp={this.state.yelp}
+          
         />
       </div>
     );

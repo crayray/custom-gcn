@@ -62,11 +62,11 @@ export default class RestaurantsLayout extends React.Component {
     })
   }
 
-  handleSelect = (message, lang, lat) => {
-    console.log(message)
-    console.log(lang)
-    console.log(lat)
-  }
+//   handleSelect = (message, lang, lat) => {
+//     console.log(message)
+//     console.log(lang)
+//     console.log(lat)
+//   }
 
   render() {
     const cuisineFilteredRestuarants = this.state.restaurants.filter(
@@ -101,6 +101,7 @@ export default class RestaurantsLayout extends React.Component {
           restaurants={this.state.restaurants}
           handleSelect={this.handleMarkerSelect}
           className="map"
+         
         />
 
         
