@@ -1,0 +1,1 @@
+2 2jsXYhrsrc/templates/posts.js

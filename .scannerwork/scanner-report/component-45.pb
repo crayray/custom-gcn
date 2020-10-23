@@ -1,0 +1,1 @@
+- 2jsXRhrsrc/components/Footer.js

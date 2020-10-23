@@ -1,0 +1,6 @@
+projectKey=GCN
+serverUrl=https://sq841.ngrok.io
+serverVersion=8.4.1.35646
+dashboardUrl=https://sq841.ngrok.io/dashboard?id=GCN&pullRequest=5
+ceTaskId=AXVCxNdB0pgG74L9pbii
+ceTaskUrl=https://sq841.ngrok.io/api/ce/task?id=AXVCxNdB0pgG74L9pbii
